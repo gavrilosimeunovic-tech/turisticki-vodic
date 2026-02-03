@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="sr-ME">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Planinski blog</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home.html" class="link">Početna</a></li>
+                    <li><a href="blog.html" class="link active">Blog</a></li>
+                    <li><a href="services.html" class="link">Usluge</a></li>
+                    <li><a href="about.html" class="link">O nama</a></li>
+                    <li><a href="contact.html" class="link">Kontakt</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="blog.html" selected>ME</option>
+                            <option value="blog-en.html">EN</option>
+                            <option value="blog-ru.html">RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="blog">
+            <header class="blog-hero">
+                <p class="blog-kicker">Planinski dnevnik</p>
+                <h1>Tragovi visina: priče s planinskih staza</h1>
+                <p class="blog-lead">
+                    Vjetar, kamen i tišina — kratke bilješke o planinama koje nas uče strpljenju i snazi.
+                </p>
+            </header>
+
+            <section class="blog-grid">
+                <article class="blog-card">
+                    <h2>Jutro na Bjelašnici</h2>
+                    <p>
+                        Prvi zraci sunca boje vrhove dok se dolina još uvijek budi. Miris borova i hladan zrak
+                        čine svaki korak lakšim.
+                    </p>
+                    <button class="blog-link" type="button" data-blog="bjelasnica">Pročitaj više</button>
+                    <div class="blog-meta">
+                        <span>Staza: Opservatorij</span>
+                        <span>Vrijeme: 2h</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Uspon na Prenj</h2>
+                    <p>
+                        Prenj je surov i iskren. Kamen pod nogama i pogled koji se otvara tek kad osjetiš umor
+                        — to je planina koja se zasluži.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Staza: Rujište</span>
+                        <span>Težina: srednje‑teško</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Tišina na Durmitoru</h2>
+                    <p>
+                        Jezera su mirna poput ogledala, a staze vode kroz livade i kamenje. Idealno mjesto da
+                        usporiš i slušaš vjetar.
+                    </p>
+                    <button class="blog-link" type="button" data-blog="durmitor">Pročitaj više</button>
+                    <div class="blog-meta">
+                        <span>Lokacija: Crno Jezero</span>
+                        <span>Sezona: jesen</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Magla na Magliću</h2>
+                    <p>
+                        Kada se oblaci spuste, staza postaje tiha i sabrana. Svaki korak traži pažnju, a pogled
+                        nagrađuje tek na vrhu.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Uspon: Prijevor</span>
+                        <span>Visina: 2.386 m</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Vikend na Vlašiću</h2>
+                    <p>
+                        Lagane staze, široke livade i domaći čaj u planinarskom domu. Idealno za miran bijeg
+                        iz grada i punjenje baterija.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Staza: Babanovac</span>
+                        <span>Težina: lako</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="blog-row">
+                <div class="blog-section">
+                    <h3>Planinarski savjeti</h3>
+                    <ul class="blog-tips">
+                        <li>Rano kreni — lakše staze, stabilnije vrijeme.</li>
+                        <li>Voda i slojevita odjeća su obavezni.</li>
+                        <li>Uvijek provjeri prognozu i stanje staza.</li>
+                        <li>Poštuj planinu: ostavi stazu čistom.</li>
+                    </ul>
+                </div>
+                <div class="blog-section blog-cta">
+                    <h3>Ruta sedmice</h3>
+                    <p>
+                        Izabrali smo kratku panoramsku šetnju koja spaja pogled na vrhove i mirne borove šume.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Dužina: 7 km</span>
+                        <span>Uspon: 350 m</span>
+                    </div>
+                    <a class="blog-btn" href="#">Pogledaj mapu</a>
+                </div>
+            </section>
+
+            <div class="blog-modal" id="blogModal" aria-hidden="true">
+                <div class="blog-modal-content" role="dialog" aria-modal="true" aria-labelledby="blogModalTitle">
+                    <button class="blog-modal-close" type="button" aria-label="Zatvori">×</button>
+                    <p class="blog-modal-kicker">Planinski dnevnik</p>
+                    <h2 id="blogModalTitle"></h2>
+                    <div class="blog-modal-body" id="blogModalBody"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+
+        const blogModal = document.querySelector("#blogModal");
+        const blogModalClose = document.querySelector(".blog-modal-close");
+        const blogOpeners = document.querySelectorAll("[data-blog]");
+        const blogModalTitle = document.querySelector("#blogModalTitle");
+        const blogModalBody = document.querySelector("#blogModalBody");
+
+        const blogContent = {
+            bjelasnica: {
+                title: "Jutro na Bjelašnici",
+                body: `
+                    <p>
+                        Jutro na Bjelašnici ima onu jasnu, staklenu tišinu koju prepoznaš tek kad staneš i
+                        osloniš dlan na hladnu ogradu staze. Dok se iznad vrhova razliva meko, narandžasto
+                        svjetlo, dolina još drijema, a planina diše polako i duboko. Nema žurbe, nema buke —
+                        samo šum vjetra kroz borove i daleko pucketanje snijega pod stopalima.
+                    </p>
+                    <p>
+                        Krenuli smo lagano, kroz polusjenu šume, gdje miris smole pomiješan s čistim vazduhom
+                        puni pluća kao da prvi put dišeš. Staza je bila tiha, a svaki korak zvučao je kao
+                        mekani šapat. Između stabala, jutarnji zraci su pravili dugačke pruge po zemlji, i
+                        djelovalo je kao da hodamo kroz svjetlost, a ne kroz šumu.
+                    </p>
+                    <p>
+                        Na otvorenijem dijelu, pogled se naglo raširio — lanac vrhova, mirna dolina i tanke
+                        pruge magle koje se, polako, povlače kao zavjesa. Tada ti postane jasno zašto ljudi
+                        dolaze ovdje da pronađu mir: prostor je velik, a misli se same poslože. Čuješ svoje
+                        disanje, ritam koraka i osjetiš kako ti hladan vazduh osvježava lice.
+                    </p>
+                    <p>
+                        Na kraju, kod vidikovca, zastali smo uz topli čaj. Sunce je već bilo visoko, ali je
+                        planina zadržala onu jutarnju svježinu. Bjelašnica ne traži mnogo — samo malo pažnje
+                        i poštovanja — a zauzvrat daje osjećaj da si, makar na kratko, dio nečega mirnog i
+                        postojanog.
+                    </p>
+                    <p>
+                        Ako planiraš ovu rutu, ponesi slojevitu odjeću i kreni rano. Jutarnje svjetlo ovdje
+                        traje kratko, ali ostavlja dug trag u sjećanju.
+                    </p>
+                `
+            },
+            durmitor: {
+                title: "Tišina na Durmitoru",
+                body: `
+                    <p>
+                        Tišina na Durmitoru nije praznina, već prisustvo. Ona se osjeti u plavetnilu Crnog jezera,
+                        u mirnom ogledalu vode i u blagom šumu trave kad vjetar prođe preko livada. Ovdje se
+                        jutro ne najavi glasno — nego se polako razlije kroz maglu, kao da planina ne želi da
+                        poremeti sopstveni mir.
+                    </p>
+                    <p>
+                        Staza uz jezero vodi lagano, bez žurbe. Na svakom koraku vidiš drugačiji odsjaj — vrhovi,
+                        oblaci, borovi i poneka ptica koja preleti nisko. Iza prve krivine, tišina postaje dublja:
+                        koraci su mekši, a misli tiše. Čini se da planina traži da usporiš, da slušaš, i da pustiš
+                        da se dan sam složi.
+                    </p>
+                    <p>
+                        Na jednom mjestu, gdje se staza odvaja prema šumi, vazduh je hladniji, a miris zemlje
+                        jači. To je onaj trenutak kad shvatiš da si daleko od svega, ali ta udaljenost ne djeluje
+                        teško — naprotiv, lagano je i čisto. Durmitor ima taj dar: da te udalji od buke, a da te
+                        približi sebi.
+                    </p>
+                    <p>
+                        Kad se sunce podigne, boje postanu oštrije, a kamen i trava dobije jasne linije. Ipak,
+                        tišina ostaje. Nema potrebe da se govori, dovoljno je sjesti na kamen, otvoriti termos
+                        i oslušnuti vjetar. U tom trenutku, Durmitor postaje više od pejzaža — postaje osjećaj.
+                    </p>
+                    <p>
+                        Ako želiš ovakvo iskustvo, dođi u ranu jesen ili pred kraj ljeta. Tada je gužva manja,
+                        svjetlo mekše, a tišina dublja.
+                    </p>
+                `
+            }
+        };
+
+        function openBlogModal(event) {
+            if (!blogModal) return;
+            const key = event?.currentTarget?.dataset?.blog;
+            const content = blogContent[key];
+            if (content && blogModalTitle && blogModalBody) {
+                blogModalTitle.textContent = content.title;
+                blogModalBody.innerHTML = content.body;
+            }
+            blogModal.classList.add("active");
+            blogModal.setAttribute("aria-hidden", "false");
+        }
+
+        function closeBlogModal() {
+            if (!blogModal) return;
+            blogModal.classList.remove("active");
+            blogModal.setAttribute("aria-hidden", "true");
+        }
+
+        blogOpeners.forEach((button) => {
+            button.addEventListener("click", openBlogModal);
+        });
+
+        blogModalClose?.addEventListener("click", closeBlogModal);
+        blogModal?.addEventListener("click", (event) => {
+            if (event.target === blogModal) {
+                closeBlogModal();
+            }
+        });
+
+        window.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeBlogModal();
+            }
+        });
+    </script>
+</body>
+</html>

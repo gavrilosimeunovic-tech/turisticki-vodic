@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contact</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home-en.html" class="link">Home</a></li>
+                    <li><a href="blog-en.html" class="link">Blog</a></li>
+                    <li><a href="services-en.html" class="link">Services</a></li>
+                    <li><a href="about-en.html" class="link">About</a></li>
+                    <li><a href="contact-en.html" class="link active">Contact</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="contact.html">ME</option>
+                            <option value="contact-en.html" selected>EN</option>
+                            <option value="contact-ru.html">RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="contact">
+            <header class="contact-hero">
+                <p class="contact-kicker">Get in touch</p>
+                <h1>Contact us</h1>
+                <p class="contact-lead">
+                    Questions about tours, dates, or equipment? Write to us — we respond quickly.
+                </p>
+            </header>
+
+            <section class="contact-grid">
+                <form class="contact-form">
+                    <div class="contact-row">
+                        <input type="text" class="input-field" placeholder="Full name">
+                        <input type="email" class="input-field" placeholder="Email">
+                    </div>
+                    <input type="text" class="input-field" placeholder="Subject">
+                    <textarea class="contact-textarea" placeholder="Your message"></textarea>
+                    <button class="submit" type="submit">Send message</button>
+                </form>
+
+                <aside class="contact-info">
+                    <h3>Info</h3>
+                    <p>Mountain tours and guides across the region.</p>
+                    <div class="contact-meta">
+                        <span><i class="bx bx-envelope"></i> planina@primjer.me</span>
+                        <span><i class="bx bx-phone"></i> +387 61 000 000</span>
+                        <span><i class="bx bx-map"></i> Žabljak, Montenegro</span>
+                    </div>
+                    <div class="contact-hours">
+                        <h4>Working hours</h4>
+                        <p>Mon–Fri: 09:00–17:00</p>
+                        <p>Sat–Sun: by arrangement</p>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+    </script>
+</body>
+</html>

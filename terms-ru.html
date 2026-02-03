@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link rel="stylesheet" href="styles.css">
+    <title>Условия использования</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-box">
+            <div class="register-container" style="position: static; width: 100%;">
+                <div class="top">
+                    <header>Условия использования</header>
+                </div>
+                <div class="input-box">
+                    <p style="color:#fff; font-size: 14px; line-height: 1.6;">
+                        Используя этот сайт, вы соглашаетесь с нашими условиями использования и политикой конфиденциальности.
+                        Ваши данные обрабатываются безопасно и используются исключительно для предоставления запрошенных услуг.
+                        Вы несёте ответственность за сохранность своих учетных данных. Мы можем обновлять эти условия в любое время.
+                    </p>
+                </div>
+                <div class="input-box">
+                    <a class="submit" href="home-ru.html" style="display:inline-block; text-align:center; line-height:45px;">Назад на главную</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+    </script>
+</body>
+</html>

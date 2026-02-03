@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Горный блог</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home-ru.html" class="link">Главная</a></li>
+                    <li><a href="blog-ru.html" class="link active">Блог</a></li>
+                    <li><a href="services-ru.html" class="link">Услуги</a></li>
+                    <li><a href="about-ru.html" class="link">О нас</a></li>
+                    <li><a href="contact-ru.html" class="link">Контакты</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="blog.html">ME</option>
+                            <option value="blog-en.html">EN</option>
+                            <option value="blog-ru.html" selected>RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="blog">
+            <header class="blog-hero">
+                <p class="blog-kicker">Горный дневник</p>
+                <h1>Следы высоты: истории с горных троп</h1>
+                <p class="blog-lead">
+                    Ветер, камень и тишина — короткие заметки о горах, которые учат терпению и силе.
+                </p>
+            </header>
+
+            <section class="blog-grid">
+                <article class="blog-card">
+                    <h2>Утро на Белашнице</h2>
+                    <p>
+                        Первые лучи солнца окрашивают вершины, пока долина ещё просыпается. Запах сосен и
+                        холодный воздух делают каждый шаг легче.
+                    </p>
+                    <button class="blog-link" type="button" data-blog="bjelasnica">Читать больше</button>
+                    <div class="blog-meta">
+                        <span>Тропа: Обсерватория</span>
+                        <span>Время: 2ч</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Подъём на Прень</h2>
+                    <p>
+                        Прень суров и честен. Камень под ногами и вид, который открывается лишь после усталости
+                        — это гора, которую нужно заслужить.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Тропа: Ружиште</span>
+                        <span>Сложность: средняя</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Тишина на Дурмиторе</h2>
+                    <p>
+                        Озёра спокойны как зеркало, а тропы проходят через луга и камни. Идеальное место,
+                        чтобы замедлиться и слушать ветер.
+                    </p>
+                    <button class="blog-link" type="button" data-blog="durmitor">Читать больше</button>
+                    <div class="blog-meta">
+                        <span>Локация: Чёрное озеро</span>
+                        <span>Сезон: осень</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Туман на Магличе</h2>
+                    <p>
+                        Когда облака опускаются, тропа становится тихой и сосредоточенной. Каждый шаг требует
+                        внимания, а вид награждает только на вершине.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Подъём: Пријевор</span>
+                        <span>Высота: 2 386 м</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Выходные на Влашиће</h2>
+                    <p>
+                        Лёгкие тропы, широкие луга и домашний чай в горном домике. Идеально для спокойного
+                        побега из города и перезагрузки.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Тропа: Бабановац</span>
+                        <span>Сложность: лёгкая</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="blog-row">
+                <div class="blog-section">
+                    <h3>Советы для походов</h3>
+                    <ul class="blog-tips">
+                        <li>Выходи рано — тропы легче, погода стабильнее.</li>
+                        <li>Вода и многослойная одежда обязательны.</li>
+                        <li>Всегда проверяй прогноз и состояние троп.</li>
+                        <li>Уважай горы: оставляй тропу чистой.</li>
+                    </ul>
+                </div>
+                <div class="blog-section blog-cta">
+                    <h3>Маршрут недели</h3>
+                    <p>
+                        Мы выбрали короткую панорамную прогулку с видом на вершины и тихие сосновые леса.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Длина: 7 км</span>
+                        <span>Набор: 350 м</span>
+                    </div>
+                    <a class="blog-btn" href="#">Посмотреть карту</a>
+                </div>
+            </section>
+
+            <div class="blog-modal" id="blogModal" aria-hidden="true">
+                <div class="blog-modal-content" role="dialog" aria-modal="true" aria-labelledby="blogModalTitle">
+                    <button class="blog-modal-close" type="button" aria-label="Закрыть">×</button>
+                    <p class="blog-modal-kicker">Горный дневник</p>
+                    <h2 id="blogModalTitle"></h2>
+                    <div class="blog-modal-body" id="blogModalBody"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+
+        const blogModal = document.querySelector("#blogModal");
+        const blogModalClose = document.querySelector(".blog-modal-close");
+        const blogOpeners = document.querySelectorAll("[data-blog]");
+        const blogModalTitle = document.querySelector("#blogModalTitle");
+        const blogModalBody = document.querySelector("#blogModalBody");
+
+        const blogContent = {
+            bjelasnica: {
+                title: "Утро на Белашнице",
+                body: `
+                    <p>
+                        Утро на Белашнице имеет ту ясную, стеклянную тишину, которую замечаешь только когда
+                        остановишься и положишь ладонь на холодное ограждение тропы. Над вершинами разливается
+                        мягкий оранжевый свет, долина ещё дремлет, а гора дышит медленно и глубоко. Нет спешки,
+                        нет шума — только ветер в соснах и далёкий хруст снега под ногами.
+                    </p>
+                    <p>
+                        Мы шли медленно, через полутень леса, где запах смолы, смешанный с чистым воздухом,
+                        наполняет лёгкие, будто дышишь впервые. Тропа была тихой, а каждый шаг звучал как
+                        мягкий шёпот. Между деревьями утренние лучи рисовали длинные полосы на земле, и
+                        казалось, будто мы идём через свет, а не через лес.
+                    </p>
+                    <p>
+                        На открытом участке вид внезапно расширяется — цепь вершин, спокойная долина и тонкие
+                        полосы тумана, которые медленно отступают, как занавес. Тогда становится ясно, почему
+                        люди приходят сюда за покоем: пространство огромное, и мысли сами становятся на место.
+                        Слышишь своё дыхание, ритм шагов и чувствуешь, как холодный воздух освежает лицо.
+                    </p>
+                    <p>
+                        В конце, у смотровой площадки, мы остановились с тёплым чаем. Солнце уже было высоко,
+                        но гора сохранила ту утреннюю свежесть. Белашница не требует многого — только немного
+                        внимания и уважения — и взамен дарит ощущение, что ты, пусть ненадолго, часть чего-то
+                        спокойного и неизменного.
+                    </p>
+                    <p>
+                        Если планируешь этот маршрут, возьми многослойную одежду и выходи рано. Утренний свет
+                        здесь длится недолго, но оставляет длинный след в памяти.
+                    </p>
+                `
+            },
+            durmitor: {
+                title: "Тишина на Дурмиторе",
+                body: `
+                    <p>
+                        Тишина на Дурмиторе — не пустота, а присутствие. Её чувствуешь в синеве Чёрного озера,
+                        в спокойном зеркале воды и в мягком шорохе травы, когда ветер проходит по лугам.
+                        Здесь утро не заявляет о себе громко — оно медленно разливается сквозь туман, словно
+                        гора не хочет нарушить собственный покой.
+                    </p>
+                    <p>
+                        Тропа вдоль озера идёт мягко, без спешки. На каждом шагу видишь другой отблеск —
+                        вершины, облака, сосны и редкую птицу, пролетающую низко. За первым поворотом тишина
+                        становится глубже: шаги мягче, мысли тише. Кажется, гора просит замедлиться, слушать
+                        и дать дню сложиться самому.
+                    </p>
+                    <p>
+                        В одном месте, где тропа уходит к лесу, воздух холоднее, а запах земли сильнее. Это тот
+                        момент, когда понимаешь, что ты далеко от всего, но эта удалённость не давит — напротив,
+                        она лёгкая и чистая. У Дурмитора есть этот дар: увести от шума и приблизить к себе.
+                    </p>
+                    <p>
+                        Когда солнце поднимается, цвета становятся резче, а камень и трава обретают чёткие линии.
+                        И всё же тишина остаётся. Нет нужды говорить — достаточно сесть на камень, открыть термос
+                        и слушать ветер. В этот момент Дурмитор становится больше, чем пейзаж — становится чувством.
+                    </p>
+                    <p>
+                        Если хочешь такого опыта, приезжай ранней осенью или ближе к концу лета. Тогда людей
+                        меньше, свет мягче, а тишина глубже.
+                    </p>
+                `
+            }
+        };
+
+        function openBlogModal(event) {
+            if (!blogModal) return;
+            const key = event?.currentTarget?.dataset?.blog;
+            const content = blogContent[key];
+            if (content && blogModalTitle && blogModalBody) {
+                blogModalTitle.textContent = content.title;
+                blogModalBody.innerHTML = content.body;
+            }
+            blogModal.classList.add("active");
+            blogModal.setAttribute("aria-hidden", "false");
+        }
+
+        function closeBlogModal() {
+            if (!blogModal) return;
+            blogModal.classList.remove("active");
+            blogModal.setAttribute("aria-hidden", "true");
+        }
+
+        blogOpeners.forEach((button) => {
+            button.addEventListener("click", openBlogModal);
+        });
+
+        blogModalClose?.addEventListener("click", closeBlogModal);
+        blogModal?.addEventListener("click", (event) => {
+            if (event.target === blogModal) {
+                closeBlogModal();
+            }
+        });
+
+        window.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeBlogModal();
+            }
+        });
+    </script>
+</body>
+</html>

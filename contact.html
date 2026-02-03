@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="sr-ME">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kontakt</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home.html" class="link">Početna</a></li>
+                    <li><a href="blog.html" class="link">Blog</a></li>
+                    <li><a href="services.html" class="link">Usluge</a></li>
+                    <li><a href="about.html" class="link">O nama</a></li>
+                    <li><a href="contact.html" class="link active">Kontakt</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="contact.html" selected>ME</option>
+                            <option value="contact-en.html">EN</option>
+                            <option value="contact-ru.html">RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="contact">
+            <header class="contact-hero">
+                <p class="contact-kicker">Piši nam</p>
+                <h1>Kontaktiraj nas</h1>
+                <p class="contact-lead">
+                    Pitanja o turama, terminima ili opremi? Piši nam — odgovaramo brzo.
+                </p>
+            </header>
+
+            <section class="contact-grid">
+                <form class="contact-form">
+                    <div class="contact-row">
+                        <input type="text" class="input-field" placeholder="Puno ime">
+                        <input type="email" class="input-field" placeholder="Email">
+                    </div>
+                    <input type="text" class="input-field" placeholder="Naslov">
+                    <textarea class="contact-textarea" placeholder="Tvoja poruka"></textarea>
+                    <button class="submit" type="submit">Pošalji poruku</button>
+                </form>
+
+                <aside class="contact-info">
+                    <h3>Informacije</h3>
+                    <p>Planinarske ture i vodiči širom regije.</p>
+                    <div class="contact-meta">
+                        <span><i class="bx bx-envelope"></i> planina@primjer.me</span>
+                        <span><i class="bx bx-phone"></i> +387 61 000 000</span>
+                        <span><i class="bx bx-map"></i> Žabljak, Crna Gora</span>
+                    </div>
+                    <div class="contact-hours">
+                        <h4>Radno vrijeme</h4>
+                        <p>Pon–Pet: 09:00–17:00</p>
+                        <p>Sub–Ned: po dogovoru</p>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Mountain Blog</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home-en.html" class="link">Home</a></li>
+                    <li><a href="blog-en.html" class="link active">Blog</a></li>
+                    <li><a href="services-en.html" class="link">Services</a></li>
+                    <li><a href="about-en.html" class="link">About</a></li>
+                    <li><a href="contact-en.html" class="link">Contact</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="blog.html">ME</option>
+                            <option value="blog-en.html" selected>EN</option>
+                            <option value="blog-ru.html">RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="blog">
+            <header class="blog-hero">
+                <p class="blog-kicker">Mountain Journal</p>
+                <h1>Trails of height: stories from mountain paths</h1>
+                <p class="blog-lead">
+                    Wind, stone, and silence — short notes about mountains that teach patience and strength.
+                </p>
+            </header>
+
+            <section class="blog-grid">
+                <article class="blog-card">
+                    <h2>Morning on Bjelašnica</h2>
+                    <p>
+                        The first rays paint the peaks while the valley still wakes. The scent of pines and
+                        the cold air make every step lighter.
+                    </p>
+                    <button class="blog-link" type="button" data-blog="bjelasnica">Read more</button>
+                    <div class="blog-meta">
+                        <span>Trail: Observatory</span>
+                        <span>Time: 2h</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Ascent to Prenj</h2>
+                    <p>
+                        Prenj is raw and honest. Stone underfoot and a view that opens only after you feel
+                        the fatigue — a mountain you have to earn.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Trail: Rujište</span>
+                        <span>Difficulty: moderate</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Silence on Durmitor</h2>
+                    <p>
+                        The lakes are calm like mirrors, and the trails run through meadows and stone. The
+                        perfect place to slow down and listen to the wind.
+                    </p>
+                    <button class="blog-link" type="button" data-blog="durmitor">Read more</button>
+                    <div class="blog-meta">
+                        <span>Location: Black Lake</span>
+                        <span>Season: autumn</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Fog on Maglić</h2>
+                    <p>
+                        When the clouds descend, the trail turns quiet and focused. Every step demands care,
+                        and the view rewards you only at the top.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Ascent: Prijevor</span>
+                        <span>Elevation: 2,386 m</span>
+                    </div>
+                </article>
+
+                <article class="blog-card">
+                    <h2>Weekend on Vlašić</h2>
+                    <p>
+                        Gentle trails, wide meadows, and homemade tea in the mountain lodge. Ideal for a calm
+                        escape from the city and a full reset.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Trail: Babanovac</span>
+                        <span>Difficulty: easy</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="blog-row">
+                <div class="blog-section">
+                    <h3>Hiking tips</h3>
+                    <ul class="blog-tips">
+                        <li>Start early — easier trails, steadier weather.</li>
+                        <li>Water and layered clothing are essential.</li>
+                        <li>Always check the forecast and trail conditions.</li>
+                        <li>Respect the mountain: leave the trail clean.</li>
+                    </ul>
+                </div>
+                <div class="blog-section blog-cta">
+                    <h3>Route of the week</h3>
+                    <p>
+                        We chose a short panoramic walk that combines peak views and quiet pine forests.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Length: 7 km</span>
+                        <span>Ascent: 350 m</span>
+                    </div>
+                    <a class="blog-btn" href="#">View map</a>
+                </div>
+            </section>
+
+            <div class="blog-modal" id="blogModal" aria-hidden="true">
+                <div class="blog-modal-content" role="dialog" aria-modal="true" aria-labelledby="blogModalTitle">
+                    <button class="blog-modal-close" type="button" aria-label="Close">×</button>
+                    <p class="blog-modal-kicker">Mountain journal</p>
+                    <h2 id="blogModalTitle"></h2>
+                    <div class="blog-modal-body" id="blogModalBody"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+
+        const blogModal = document.querySelector("#blogModal");
+        const blogModalClose = document.querySelector(".blog-modal-close");
+        const blogOpeners = document.querySelectorAll("[data-blog]");
+        const blogModalTitle = document.querySelector("#blogModalTitle");
+        const blogModalBody = document.querySelector("#blogModalBody");
+
+        const blogContent = {
+            bjelasnica: {
+                title: "Morning on Bjelašnica",
+                body: `
+                    <p>
+                        Morning on Bjelašnica has a clear, glassy silence you notice only when you stop and
+                        rest your palm on the cold trail railing. Soft orange light spills over the peaks
+                        while the valley still sleeps, and the mountain breathes slowly and deeply. No rush,
+                        no noise — just the wind in the pines and the distant crunch of snow underfoot.
+                    </p>
+                    <p>
+                        We started slowly, through the forest’s half‑shade, where the scent of resin mixed
+                        with clean air fills your lungs like a first breath. The trail was quiet, and each
+                        step sounded like a soft whisper. Between the trees, morning rays painted long stripes
+                        on the ground, and it felt as if we were walking through light, not through the woods.
+                    </p>
+                    <p>
+                        On the open stretch, the view suddenly widens — a chain of peaks, a calm valley, and
+                        thin bands of mist slowly pulling back like a curtain. That’s when you understand why
+                        people come here to find calm: the space is vast, and thoughts fall into place on their
+                        own. You hear your breathing, the rhythm of your steps, and feel the cold air refresh
+                        your face.
+                    </p>
+                    <p>
+                        At the viewpoint we paused for warm tea. The sun was already high, yet the mountain
+                        kept its morning coolness. Bjelašnica doesn’t ask for much — just a little attention
+                        and respect — and in return it gives the feeling that, if only briefly, you are part
+                        of something calm and enduring.
+                    </p>
+                    <p>
+                        If you plan this route, bring layers and start early. The morning light here is short,
+                        but it leaves a long trace in memory.
+                    </p>
+                `
+            },
+            durmitor: {
+                title: "Silence on Durmitor",
+                body: `
+                    <p>
+                        Silence on Durmitor is not emptiness, but presence. You feel it in the blue of Black
+                        Lake, in the calm mirror of the water, and in the soft rustle of grass when the wind
+                        passes over the meadows. Here, morning doesn’t announce itself loudly — it spreads
+                        slowly through the mist, as if the mountain doesn’t want to disturb its own peace.
+                    </p>
+                    <p>
+                        The path by the lake leads gently, without hurry. At every step you see a different
+                        reflection — peaks, clouds, pines, and an occasional bird flying low. Beyond the first
+                        bend, the silence grows deeper: steps soften, thoughts quiet. It feels like the mountain
+                        asks you to slow down, to listen, and to let the day arrange itself.
+                    </p>
+                    <p>
+                        At one point, where the trail turns toward the forest, the air turns cooler and the
+                        scent of earth grows stronger. That’s the moment you realize you are far from everything,
+                        yet that distance doesn’t feel heavy — on the contrary, it feels light and clean.
+                        Durmitor has that gift: to pull you away from noise and closer to yourself.
+                    </p>
+                    <p>
+                        When the sun rises, colors sharpen and stone and grass gain clear lines. Still, the
+                        silence remains. There is no need to speak; it’s enough to sit on a rock, open a
+                        thermos, and listen to the wind. In that moment, Durmitor becomes more than a landscape
+                        — it becomes a feeling.
+                    </p>
+                    <p>
+                        If you want this kind of experience, come in early autumn or toward the end of summer.
+                        Then the crowds are smaller, the light softer, and the silence deeper.
+                    </p>
+                `
+            }
+        };
+
+        function openBlogModal(event) {
+            if (!blogModal) return;
+            const key = event?.currentTarget?.dataset?.blog;
+            const content = blogContent[key];
+            if (content && blogModalTitle && blogModalBody) {
+                blogModalTitle.textContent = content.title;
+                blogModalBody.innerHTML = content.body;
+            }
+            blogModal.classList.add("active");
+            blogModal.setAttribute("aria-hidden", "false");
+        }
+
+        function closeBlogModal() {
+            if (!blogModal) return;
+            blogModal.classList.remove("active");
+            blogModal.setAttribute("aria-hidden", "true");
+        }
+
+        blogOpeners.forEach((button) => {
+            button.addEventListener("click", openBlogModal);
+        });
+
+        blogModalClose?.addEventListener("click", closeBlogModal);
+        blogModal?.addEventListener("click", (event) => {
+            if (event.target === blogModal) {
+                closeBlogModal();
+            }
+        });
+
+        window.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+                closeBlogModal();
+            }
+        });
+    </script>
+</body>
+</html>

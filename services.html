@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="sr-ME">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Usluge</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home.html" class="link">Početna</a></li>
+                    <li><a href="blog.html" class="link">Blog</a></li>
+                    <li><a href="services.html" class="link active">Usluge</a></li>
+                    <li><a href="about.html" class="link">O nama</a></li>
+                    <li><a href="contact.html" class="link">Kontakt</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="services.html" selected>ME</option>
+                            <option value="services-en.html">EN</option>
+                            <option value="services-ru.html">RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="services">
+            <header class="services-hero">
+                <p class="services-kicker">Planinske usluge</p>
+                <h1>Planinarske usluge za svaki nivo</h1>
+                <p class="services-lead">
+                    Od laganih šetnji do ozbiljnih uspona — biraj paket koji ti najviše odgovara.
+                </p>
+            </header>
+
+            <section class="services-grid">
+                <article class="service-card">
+                    <i class="bx bx-map"></i>
+                    <h2>Vođene ture</h2>
+                    <p>
+                        Sigurne rute uz iskusne vodiče, sa naglaskom na prirodu i ritam grupe.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <i class="bx bx-sun"></i>
+                    <h2>Vikend izleti</h2>
+                    <p>
+                        Kratki planinski bijeg uz smještaj i logistiku organizovanu za tebe.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <i class="bx bx-book"></i>
+                    <h2>Obuke i radionice</h2>
+                    <p>
+                        Navigacija, sigurnost, prva pomoć — praktična znanja za samostalne ture.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <i class="bx bx-cube"></i>
+                    <h2>Iznajmljivanje opreme</h2>
+                    <p>
+                        Ruksaci, dereze, štapovi i sve potrebno za sezonu.
+                    </p>
+                </article>
+            </section>
+
+            <section class="pricing">
+                <div class="pricing-card">
+                    <h3>Osnovni</h3>
+                    <p class="price">€45</p>
+                    <ul>
+                        <li>Jednodnevna tura</li>
+                        <li>Osnovna logistika</li>
+                        <li>Grupni vodič</li>
+                    </ul>
+                    <a class="blog-btn" href="#">Rezerviši</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Napredni</h3>
+                    <p class="price">€95</p>
+                    <ul>
+                        <li>Dvodnevna tura</li>
+                        <li>Smještaj + hrana</li>
+                        <li>Foto stopovi</li>
+                    </ul>
+                    <a class="blog-btn" href="#">Rezerviši</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <p class="price">€160</p>
+                    <ul>
+                        <li>Privatna tura</li>
+                        <li>Personalni plan</li>
+                        <li>Oprema uključena</li>
+                    </ul>
+                    <a class="blog-btn" href="#">Rezerviši</a>
+                </div>
+            </section>
+
+            <section class="services-row">
+                <div class="services-section">
+                    <h3>Ruta sedmice</h3>
+                    <p>
+                        Lagani uspon s panoramskim pogledom, idealan za početnike i rekreativce.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Dužina: 6 km</span>
+                        <span>Uspon: 280 m</span>
+                    </div>
+                </div>
+                <div class="services-section">
+                    <h3>Zašto s nama?</h3>
+                    <p>
+                        Sigurnost, iskustvo, lokalni vodiči i ture koje poštuju prirodu.
+                    </p>
+                    <div class="services-tags">
+                        <span>Licencirani vodiči</span>
+                        <span>Male grupe</span>
+                        <span>Fleksibilni termini</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+    </script>
+</body>
+</html>

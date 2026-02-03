@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Услуги</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home-ru.html" class="link">Главная</a></li>
+                    <li><a href="blog-ru.html" class="link">Блог</a></li>
+                    <li><a href="services-ru.html" class="link active">Услуги</a></li>
+                    <li><a href="about-ru.html" class="link">О нас</a></li>
+                    <li><a href="contact-ru.html" class="link">Контакты</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="services.html">ME</option>
+                            <option value="services-en.html">EN</option>
+                            <option value="services-ru.html" selected>RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="services">
+            <header class="services-hero">
+                <p class="services-kicker">Горные услуги</p>
+                <h1>Туристические услуги для любого уровня</h1>
+                <p class="services-lead">
+                    От лёгких прогулок до серьёзных подъёмов — выбирай пакет, который подходит именно тебе.
+                </p>
+            </header>
+
+            <section class="services-grid">
+                <article class="service-card">
+                    <i class="bx bx-map"></i>
+                    <h2>Экскурсии с гидом</h2>
+                    <p>
+                        Безопасные маршруты с опытными гидами, акцент на природу и темп группы.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <i class="bx bx-sun"></i>
+                    <h2>Поездки на выходные</h2>
+                    <p>
+                        Короткий горный отдых с проживанием и логистикой, организованными для тебя.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <i class="bx bx-book"></i>
+                    <h2>Обучение и мастер‑классы</h2>
+                    <p>
+                        Навигация, безопасность, первая помощь — практические знания для самостоятельных походов.
+                    </p>
+                </article>
+
+                <article class="service-card">
+                    <i class="bx bx-cube"></i>
+                    <h2>Аренда снаряжения</h2>
+                    <p>
+                        Рюкзаки, кошки, трекинговые палки и всё необходимое для сезона.
+                    </p>
+                </article>
+            </section>
+
+            <section class="pricing">
+                <div class="pricing-card">
+                    <h3>Базовый</h3>
+                    <p class="price">€45</p>
+                    <ul>
+                        <li>Однодневный тур</li>
+                        <li>Базовая логистика</li>
+                        <li>Групповой гид</li>
+                    </ul>
+                    <a class="blog-btn" href="#">Забронировать</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Продвинутый</h3>
+                    <p class="price">€95</p>
+                    <ul>
+                        <li>Двухдневный тур</li>
+                        <li>Проживание + питание</li>
+                        <li>Фото‑остановки</li>
+                    </ul>
+                    <a class="blog-btn" href="#">Забронировать</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <p class="price">€160</p>
+                    <ul>
+                        <li>Индивидуальный тур</li>
+                        <li>Персональный план</li>
+                        <li>Снаряжение включено</li>
+                    </ul>
+                    <a class="blog-btn" href="#">Забронировать</a>
+                </div>
+            </section>
+
+            <section class="services-row">
+                <div class="services-section">
+                    <h3>Маршрут недели</h3>
+                    <p>
+                        Лёгкий подъём с панорамным видом, идеален для новичков и любителей.
+                    </p>
+                    <div class="blog-meta">
+                        <span>Длина: 6 км</span>
+                        <span>Набор: 280 м</span>
+                    </div>
+                </div>
+                <div class="services-section">
+                    <h3>Почему с нами?</h3>
+                    <p>
+                        Безопасность, опыт, местные гиды и туры с уважением к природе.
+                    </p>
+                    <div class="services-tags">
+                        <span>Лицензированные гиды</span>
+                        <span>Малые группы</span>
+                        <span>Гибкие даты</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+    </script>
+</body>
+</html>

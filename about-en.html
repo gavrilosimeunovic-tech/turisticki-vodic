@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>About</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home-en.html" class="link">Home</a></li>
+                    <li><a href="blog-en.html" class="link">Blog</a></li>
+                    <li><a href="services-en.html" class="link">Services</a></li>
+                    <li><a href="about-en.html" class="link active">About</a></li>
+                    <li><a href="contact-en.html" class="link">Contact</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="about.html">ME</option>
+                            <option value="about-en.html" selected>EN</option>
+                            <option value="about-ru.html">RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="about">
+            <header class="about-hero">
+                <p class="about-kicker">Our Story</p>
+                <h1>About mountains, people, and trails</h1>
+                <p class="about-lead">
+                    We are a small team of nature lovers who organize tours, write guides, and share knowledge.
+                </p>
+            </header>
+
+            <section class="about-grid">
+                <div class="about-card">
+                    <h2>Mission</h2>
+                    <p>
+                        Connect people with the mountain through safe, accessible, and authentic tours — no rush, no noise.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <h2>Values</h2>
+                    <p>
+                        Respect for nature, safety first, and local knowledge shared openly.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <h2>Experience</h2>
+                    <p>
+                        Dozens of tours, hundreds of kilometers of trails, and a guide team that knows the terrain in detail.
+                    </p>
+                </div>
+            </section>
+
+            <section class="about-row">
+                <div class="about-section">
+                    <h3>Our approach</h3>
+                    <p>
+                        Smaller groups, more attention. We start early, adjust the pace, take breaks, and leave the trail clean.
+                    </p>
+                </div>
+                <div class="about-section">
+                    <h3>Contact</h3>
+                    <p>Write to us for a route, advice, or collaboration.</p>
+                    <div class="about-meta">
+                        <span>email: planina@primjer.me</span>
+                        <span>phone: +387 61 000 000</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Горы | Вход и регистрация</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home-ru.html" class="link active">Главная</a></li>
+                    <li><a href="blog-ru.html" class="link">Блог</a></li>
+                    <li><a href="services-ru.html" class="link">Услуги</a></li>
+                    <li><a href="about-ru.html" class="link">О нас</a></li>
+                    <li><a href="contact-ru.html" class="link">Контакты</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="home.html">ME</option>
+                            <option value="home-en.html">EN</option>
+                            <option value="home-ru.html" selected>RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Вход</button>
+                <button class="btn" id="registerBtn" onclick="register()">Регистрация</button>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <div class="form-box">
+            <!-- Login form -->
+            <div class="login-container" id="login">
+                <div class="top">
+                    <span>Нет аккаунта? <a href="#" onclick="register()">Зарегистрироваться</a></span>
+                    <header>Вход</header>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Имя пользователя или email">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Пароль">
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Войти">
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="login-check">
+                        <label for="login-check">Запомнить меня</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="forgot-ru.html">Забыли пароль?</a></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration form -->
+            <div class="register-container" id="register">
+                <div class="top">
+                    <span>Уже есть аккаунт? <a href="#" onclick="login()">Войти</a></span>
+                    <header>Регистрация</header>
+                </div>
+                <div class="two-forms">
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Имя">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Фамилия">
+                        <i class="bx bx-user"></i>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Email">
+                    <i class="bx bx-envelope"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" class="input-field" placeholder="Пароль">
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="submit" value="Зарегистрироваться">
+                </div>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="register-check">
+                        <label for="register-check">Запомнить меня</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="terms-ru.html">Условия использования</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const formBox = document.querySelector(".form-box");
+        const loginBtn = document.getElementById("loginBtn");
+        const registerBtn = document.getElementById("registerBtn");
+
+        function login() {
+            formBox.classList.remove("active");
+            loginBtn.classList.add("white-btn");
+            registerBtn.classList.remove("white-btn");
+        }
+
+        function register() {
+            formBox.classList.add("active");
+            registerBtn.classList.add("white-btn");
+            loginBtn.classList.remove("white-btn");
+        }
+
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+    </script>
+</body>
+</html>

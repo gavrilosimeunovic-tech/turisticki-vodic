@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="sr-ME">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="Planina.png">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>O nama</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p>LOGO.</p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="home.html" class="link">Početna</a></li>
+                    <li><a href="blog.html" class="link">Blog</a></li>
+                    <li><a href="services.html" class="link">Usluge</a></li>
+                    <li><a href="about.html" class="link active">O nama</a></li>
+                    <li><a href="contact.html" class="link">Kontakt</a></li>
+                    <li class="lang-switch">
+                        <select class="lang-select" onchange="location=this.value">
+                            <option value="about.html" selected>ME</option>
+                            <option value="about-en.html">EN</option>
+                            <option value="about-ru.html">RU</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+
+        <main class="about">
+            <header class="about-hero">
+                <p class="about-kicker">Naša priča</p>
+                <h1>O planinama, ljudima i stazama</h1>
+                <p class="about-lead">
+                    Mi smo mali tim zaljubljenika u prirodu koji organizuje ture, piše vodiče i dijeli znanje.
+                </p>
+            </header>
+
+            <section class="about-grid">
+                <div class="about-card">
+                    <h2>Misija</h2>
+                    <p>
+                        Povezati ljude s planinom kroz sigurne, pristupačne i autentične ture — bez žurbe i bez buke.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <h2>Vrijednosti</h2>
+                    <p>
+                        Poštovanje prirode, sigurnost na prvom mjestu i lokalno znanje koje dijelimo bez skrivanja.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <h2>Iskustvo</h2>
+                    <p>
+                        Desetine tura, stotine kilometara staza i tim vodiča koji poznaju teren u detalje.
+                    </p>
+                </div>
+            </section>
+
+            <section class="about-row">
+                <div class="about-section">
+                    <h3>Naš pristup</h3>
+                    <p>
+                        Manje grupe, više pažnje. Krenemo rano, prilagodimo tempo, napravimo pauze i ostavimo stazu čistom.
+                    </p>
+                </div>
+                <div class="about-section">
+                    <h3>Kontakt</h3>
+                    <p>Piši nam za rutu, savjet ili saradnju.</p>
+                    <div class="about-meta">
+                        <span>email: planina@primjer.me</span>
+                        <span>telefon: +387 61 000 000</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        function myMenuFunction() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("active");
+        }
+
+        const nav = document.querySelector(".nav");
+        let lastScrollY = window.scrollY;
+        window.addEventListener("scroll", () => {
+            if (!nav) return;
+            const current = window.scrollY;
+            if (current > lastScrollY && current > 80) {
+                nav.classList.add("hidden");
+            } else {
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = current;
+        });
+    </script>
+</body>
+</html>
